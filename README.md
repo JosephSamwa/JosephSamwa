@@ -2,7 +2,9 @@
 - 👀 I’m interested in ...
 - 🌱 I’m currently learning full stack web development 
 - 💞️ I’m looking to collaborate on IT projects in various fields 
-- 📫 How to reach me :Email: samwajoseph8@gmail.com :Phone: 254793540008/254742451048
+- 📫 How to reach me
+- :Email: samwajoseph8@gmail.com
+- :Phone: 254793540008/254742451048
 - 😄 Pronouns: He
 - ⚡ Fun fact: learn to code as you code to learn
 
