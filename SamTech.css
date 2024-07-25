@@ -1,0 +1,293 @@
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.H {
+  margin-left: 20px;
+}
+
+/* Navigation */
+nav {
+  margin-top: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ff8c00;
+}
+
+/* Hero Section */
+#home {
+  text-align: center;
+  padding: 10px 0;
+}
+
+#home h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#home p {
+  font-size: 18px;
+  color: #888;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#devBt {
+    align-content: center;
+    text-align: center;
+    background-color: #ff8c00;
+    margin-right: 50%;
+    margin-left: 50%;
+    width: fit-content;
+}
+/*
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+*/
+/* Footer */
+footer {
+  background-color: #333;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.social-media {
+  margin-top: 20px;
+}
+
+.social-media a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.social-media a:hover {
+  color: #ff8c00;
+}
+/* Portfolio Section */
+#portfolio {
+  padding: 10px 0;
+}
+
+#portfolio h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.portfolio-item {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.portfolio-item img {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.portfolio-item a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.portfolio-item a:hover {
+  color: #ff8c00;
+}
+#view {
+    color: blue;
+}
+/* Contact Section */
+#contact {
+  padding: 10px 0;
+}
+.callUs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+        #whatsapp {
+            background-color: #25D366;
+        }
+        #call {
+            background-color: #34B7F1;
+        }
+#contact h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#contactForm label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#contactForm input,
+#contactForm textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+#contactForm button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #ff8c00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#contactForm button[type="submit"]:hover {
+  background-color: #ff6f00;
+}
+/* Testimonials Styles */
+.testimonial {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    animation: fade-in 1s ease-in-out;
+}
+
+.testimonial.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.testimonial.slide-out {
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: fade-out 2s ease-in-out;
+}
+
+.testimonial.slide-in {
+    transform: translateX(100%);
+    opacity: 1;
+    animation: fade-in 6s ease-in-out;
+}
+
+/* Keyframes for fading in and out */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Testimonials Styles */
+/*
+.testimonial {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.testimonial.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.testimonial.slide-out {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.testimonial.slide-in {
+    transform: translateX(100%);
+    opacity: 1;
+}
+*/
+/* Social Media Links */
+.social-media a {
+    color: white;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+/* Map Container */
+/*
+#mapContainer {
+    width: 100%;
+    height: 300px;
+    background-color: #eee;
+    margin-top: 1rem;
+}
+*/
