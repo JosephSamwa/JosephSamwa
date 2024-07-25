@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamTech Website Solutions</title>
+    <link rel="stylesheet" href="SamTech.css">
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+       <div> <img src="SamTech.jpg" alt="SamTech Logo" class="logo"> </div>
+       <div class="H"> <h2 style="text-align:center;">SamTech Website Solutions</h2> </div>
+      <!--  <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav> -->
+    </header>
+    <main>
+        <section id="home">
+            <h2>Welcome to SamTech Website Solutions</h2>
+            <p>Your one-stop solution for all your web development needs.</p>
+        </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Web Development</li>
+                <li>SEO Optimization</li>
+                <li>Website Management</li>
+                <li>Custom Solutions</li>
+            </ul>
+        </section>
+        <section class="testimonials">
+            <h2>Testimonials</h2>
+            <div class="testimonial">
+                <p>"SamTech transformed our online presence!" - Happy Client</p>
+            </div>
+            <div class="testimonial">
+                <p>"Professional and efficient service." - Satisfied Customer</p>
+            </div>
+            <div class="testimonial">
+                <p>"Highly recommend SamTech for web solutions." - Another Client</p>
+            </div>
+        </section>
+        <section id="portfolio">
+            <h2>Our Portfolio</h2>
+            <p>Check out some of our recent projects:</p>
+            <div class="portfolio-item">
+                <p>PROJECT 1</p>
+                <img src="project1.png" alt="Project 1">
+                <a href="https://www.project3.com" id="view">View Project</a>
+            </div>
+            <hr />
+            <div class="portfolio-item">
+                  <p>PROJECT 2</p>
+                <img src="project2.png" alt="Project 2">
+                <a href="https://hope-kokeno-cbo.netlify.app/" id="view">View Project</a>
+            </div>
+            <hr />
+            <div class="portfolio-item">
+                  <p>PROJECT 3</p>
+                <img src="project3.jpg" alt="Project 3">
+                <a href="https://www.project3.com" id="view">View Project</a>
+            </div>
+            <hr />
+        </section>
+        <section id="developer">
+            <h3>Are you a freelancer developer?</h3>
+            <p>Register today to join your fellow developers at SamTech</p>
+            <button id="devBt">Register Now</button>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="callUs">
+              <button id="whatsapp"><i class="fab fa-whatsapp"></i> WHATSAPP</button>
+            <button id="call"><i class="fas fa-phone"></i> CALL</button>
+            </div>
+                      
+            <form id="contactForm">
+                  <h2>Send a message (email)</h2>
+                <label for="name"><i class="fas fa-user"></i> Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message"><i class="fas fa-comment"></i> Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+                <section id="developerReg">
+            <form id="developerForm">
+                  <h2>Send a message (email)</h2>
+                <label for="name"><i class="fas fa-user"></i> Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message"><i class="fas fa-comment"></i> Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+       <!-- <section id="newsletter">
+            <h2>Subscribe to our Newsletter</h2>
+            <form id="newsletterForm">
+                <label for="newsletterEmail"><i class="fas fa-envelope"></i> Email:</label>
+                <input type="email" id="newsletterEmail" name="newsletterEmail" required>
+                <button type="submit">Subscribe</button> -->
+            </form>
+        </section>
+        <!--<section id="map">
+            <h2>Our Location</h2>
+            <div id="mapContainer"></div>
+        </section> -->
+    </main>
+    <footer>
+        <p>© 2024 SamTech Website Solutions. All rights reserved. </p> <a href="mailto:samtech.websites@gmail.com">samtech.websites@gmail.com</a>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+    <script src="SamTech.js"></script>
+</body>
+</html>
