@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SamTech-messages</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+</head>
+<body>
+    <h1>Messages From Clients</h1>
+    <table id="msgTble">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>MESSAGE</th>
+                 <th>DATE</th>
+                 <th>REPLIED</th>
+                <!-- Remove the following line to exclude the Delete column -->
+            </tr>
+        </thead>
+        <tbody id="msgs"></tbody>
+    </table>
+
+    <script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyAujFKDx_T7ZSEyYGmvbdhkmn8SdKCNXjs",
+    authDomain: "hope-kokeno-cbo.firebaseapp.com",
+    databaseURL: "https://hope-kokeno-cbo-default-rtdb.firebaseio.com",
+    projectId: "hope-kokeno-cbo",
+    storageBucket: "hope-kokeno-cbo.appspot.com",
+    messagingSenderId: "508964589142",
+    appId: "1:508964589142:web:33a4d190a497bb5ecab5f7"
+  };
+
+        firebase.initializeApp(firebaseConfig);
+        const firebaseRef = firebase.database().ref("SamTech-messages");
+
+        async function listenForChanges() {
+            try {
+                firebaseRef.on("value", (snapshot) => {
+                    const data = snapshot.val();
+                    const tableBody = document.querySelector("#msgs");
+                    tableBody.innerHTML = ""; // Clear existing rows
+
+                    let rowNum = 1; // Initialize row number
+
+                    for (const key in data) {
+                        const memberData = data[key];
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${rowNum}</td>
+                            <td>${memberData.name}</td>
+                            <td>${memberData.email}</td>
+                            <td>${memberData.message}</td>
+                            <td>${memberData.date}</td>
+                            <td><input type="checkbox"></td>
+                        `;
+                        row.setAttribute("data-id", key); // Set data-id attribute
+                        tableBody.appendChild(row);
+                        rowNum++; // Increment row number
+                    }
+                });
+            } catch (error) {
+                console.error("Error listening for changes:", error);
+            }
+        }
+
+        // Call the listenForChanges function to start listening
+        listenForChanges();
+        /*
+        function deleteRow(key) {
+    try {
+        // Remove the member with the specified key from the database
+        firebaseRef.child(key).remove();
+        console.log(`Member with key ${key} deleted successfully.`);
+    } catch (error) {
+        console.error("Error deleting member:", error);
+    }
+}
+*/
+    </script>
+</body>
+</html>
