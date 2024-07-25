@@ -60,14 +60,14 @@ function showConfirmation() {
 
 // WhatsApp button functionality
 document.getElementById('whatsapp').addEventListener('click', function() {
-    const phoneNumber = 254742451048; // Replace with your WhatsApp number
+    const phoneNumber = 254113607660; // Replace with your WhatsApp number
     const url = `https://wa.me/${phoneNumber}`;
     window.open(url, '_blank');
 });
 
 // Call button functionality
 document.getElementById('call').addEventListener('click', function() {
-    const phoneNumber = 254742451048; // Replace with your phone number
+    const phoneNumber = 254113607660; // Replace with your phone number
     window.location.href = `tel:${phoneNumber}`;
 });
 /*
