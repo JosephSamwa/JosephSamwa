@@ -215,13 +215,14 @@ footer {
 .testimonial.active {
     display: block;
     opacity: 1;
+    background-color: grey;
     transform: translateX(0);
 }
 
 .testimonial.slide-out {
     transform: translateX(-100%);
     opacity: 0;
-    animation: fade-out 2s ease-in-out;
+    animation: fade-out 5s ease-in-out;
 }
 
 .testimonial.slide-in {
@@ -229,6 +230,19 @@ footer {
     opacity: 1;
     animation: fade-in 6s ease-in-out;
 }
+#alert {
+    background-color: green;
+    width: fit-content;
+    padding: 10px;
+    display: none;
+    
+}
+#DevAlert {
+    background-color: gold;
+    width: fit-content;
+    padding: 10px;
+    display: none;
+    
 
 /* Keyframes for fading in and out */
 @keyframes fade-in {
