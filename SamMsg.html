@@ -3,6 +3,9 @@
 <head>
     <title>SamTech-messages</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
         table {
             border-collapse: collapse;
             width: 100%;
@@ -12,8 +15,25 @@
             padding: 8px;
             text-align: left;
         }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .delete-button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .delete-button:hover {
+            background-color: #d9534f;
+        }
     </style>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <!-- Your Firebase scripts here -->
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
 </head>
 <body>
@@ -26,9 +46,9 @@
                 <th>EMAIL</th>
                 <th>PHONE</th>
                 <th>MESSAGE</th>
-                 <th>DATE</th>
-                 <th>REPLIED</th>
-                <!-- Remove the following line to exclude the Delete column -->
+                <th>DATE</th>
+                <th>REPLIED</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody id="msgs"></tbody>
@@ -36,7 +56,9 @@
 
     <script>
     const firebaseConfig = {
+
     apiKey: "AIzaSyAujFKDx_T7ZSEyYGmvbdhkmn8SdKCNXjs",
+
     authDomain: "hope-kokeno-cbo.firebaseapp.com",
     databaseURL: "https://hope-kokeno-cbo-default-rtdb.firebaseio.com",
     projectId: "hope-kokeno-cbo",
@@ -68,7 +90,7 @@
                             <td>${memberData.message}</td>
                             <td>${memberData.date}</td>
                             <td><input type="checkbox"></td>
-                            <td><button onclick="deleteRow('${key}')">Delete</button></td>
+                            <td><button onclick="deleteRow('${key}')" class="delete-button">Delete</button></td>
                         `;
                         row.setAttribute("data-id", key); // Set data-id attribute
                         tableBody.appendChild(row);
@@ -92,6 +114,23 @@
         console.error("Error deleting member:", error);
     }
 }
+        // Example date formatting function (replace with your actual date formatting logic)
+     /*   function formatDate(timestamp) {
+            const date = new Date(timestamp);
+            return `${date.toLocaleString("default", { month: "short" })} ${date.getDate()}, ${date.getFullYear()}`;
+        }
+
+        // Example deleteRow function (replace with your actual implementation)
+        function deleteRow(key) {
+            try {
+                // Remove the member with the specified key from the database
+                firebaseRef.child(key).remove();
+                console.log(`Member with key ${key} deleted successfully.`);
+            } catch (error) {
+                console.error("Error deleting member:", error);
+            }
+        }
+        */
     </script>
 </body>
 </html>
