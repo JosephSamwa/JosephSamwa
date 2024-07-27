@@ -11,7 +11,6 @@
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
-
 // Function to save contact form data
 function saveContactFormData(name, email, phone, message) {
     const newContactFormRef = database.ref('SamTech-messages').push();
@@ -47,12 +46,33 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     const phone = document.getElementById('phone').value;
     const message = document.getElementById('message').value;
     saveContactFormData(name, email, phone, message);
-    showConfirmation();
+    setTimeout(showConfirmation, 10);
+    setTimeout(hideConfirmation, 3000);
     document.getElementById('contactForm').reset();
 });
 function showConfirmation() {
+    let alerts = document.getElementById('alert');
     let naMe = document.getElementById('name').value;
+    alerts.style.display='block';
     // Show a success message
+    alerts.innerHTML=`Thank you for contacting us, ${naMe} !.Serving you is our pleasure!`;
+}
+function hideConfirmation() {
+    let alerTs = document.getElementById('alert');
+    alerTs.style.display='none';
+}
+function DevAlert() {
+    const DevAlerts = document.getElementById('DevAlert');
+    DevAlerts.style.display='block';
+    const btn = document.getElementById('whatsapp').value;
+    DevAlerts.innerHTML='Kindly click this alert to contact us via whatsapp.';
+    setTimeout(HideDevAlert, 5000);
+}
+ function HideDevAlert() {
+    const Dev = document.getElementById('DevAlert');
+    Dev.style.display='none';
+ }
+   /*
     Swal.fire({
         icon: 'success',
         title: 'Message Sent successfully',
@@ -60,17 +80,23 @@ function showConfirmation() {
         confirmButtonText: 'OK'
     });
 }
-
+*/
+document.getElementById('devBt').addEventListener('click',DevAlert);
+document.getElementById('DevAlert').addEventListener('click', function() {
+    const phoneNumber = 254113607660; // Replace with your WhatsApp number
+    const url = `https://wa.me/${phoneNumber}`;
+    window.open(url, '_blank');
+});
 // WhatsApp button functionality
 document.getElementById('whatsapp').addEventListener('click', function() {
-    const phoneNumber = 254742451048; // Replace with your WhatsApp number
+    const phoneNumber = 254113607660; // Replace with your WhatsApp number
     const url = `https://wa.me/${phoneNumber}`;
     window.open(url, '_blank');
 });
 
 // Call button functionality
 document.getElementById('call').addEventListener('click', function() {
-    const phoneNumber = 254742451048; // Replace with your phone number
+    const phoneNumber = 254113607660; // Replace with your phone number
     window.location.href = `tel:${phoneNumber}`;
 });
 /*
@@ -109,10 +135,10 @@ function showNextTestimonial() {
     setTimeout(() => {
         testimonials[currentTestimonial].classList.remove('slide-in');
         testimonials[currentTestimonial].classList.remove('slide-out');
-    }, 3000);
+    }, 6000);
 }
 
-setInterval(showNextTestimonial, 5000);
+setInterval(showNextTestimonial, 6000);
 
 // Initialize the first testimonial
 testimonials[currentTestimonial].classList.add('active');
