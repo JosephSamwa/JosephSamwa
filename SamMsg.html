@@ -24,6 +24,7 @@
                 <th>#</th>
                 <th>NAME</th>
                 <th>EMAIL</th>
+                <th>PHONE</th>
                 <th>MESSAGE</th>
                  <th>DATE</th>
                  <th>REPLIED</th>
@@ -63,9 +64,11 @@
                             <td>${rowNum}</td>
                             <td>${memberData.name}</td>
                             <td>${memberData.email}</td>
+                            <td>${memberData.phone}</td>
                             <td>${memberData.message}</td>
                             <td>${memberData.date}</td>
                             <td><input type="checkbox"></td>
+                            <td><button onclick="deleteRow('${key}')">Delete</button></td>
                         `;
                         row.setAttribute("data-id", key); // Set data-id attribute
                         tableBody.appendChild(row);
@@ -79,7 +82,7 @@
 
         // Call the listenForChanges function to start listening
         listenForChanges();
-        /*
+
         function deleteRow(key) {
     try {
         // Remove the member with the specified key from the database
@@ -89,7 +92,6 @@
         console.error("Error deleting member:", error);
     }
 }
-*/
     </script>
 </body>
 </html>
