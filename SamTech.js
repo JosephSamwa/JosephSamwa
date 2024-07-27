@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
 // Function to save contact form data
-function saveContactFormData(name, email, message) {
+function saveContactFormData(name, email, phone, message) {
     const newContactFormRef = database.ref('SamTech-messages').push();
     const date = new Date();
     const day = date.getDate();
@@ -33,6 +33,7 @@ function saveContactFormData(name, email, message) {
     newContactFormRef.set({
         name: name,
         email: email,
+        phone: phone,
         message: message,
         date: formattedTime
     });
@@ -43,31 +44,33 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     event.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
     const message = document.getElementById('message').value;
-    saveContactFormData(name, email, message);
+    saveContactFormData(name, email, phone, message);
     showConfirmation();
     document.getElementById('contactForm').reset();
 });
 function showConfirmation() {
+    let naMe = document.getElementById('name').value;
     // Show a success message
     Swal.fire({
         icon: 'success',
         title: 'Message Sent successfully',
-        text: `Thank you for contacting us, ${name} !. Serving you is our pleasure!`,
+        text: `Thank you for contacting us, ${naMe} !. Serving you is our pleasure!`,
         confirmButtonText: 'OK'
     });
 }
 
 // WhatsApp button functionality
 document.getElementById('whatsapp').addEventListener('click', function() {
-    const phoneNumber = 254113607660; // Replace with your WhatsApp number
+    const phoneNumber = 254742451048; // Replace with your WhatsApp number
     const url = `https://wa.me/${phoneNumber}`;
     window.open(url, '_blank');
 });
 
 // Call button functionality
 document.getElementById('call').addEventListener('click', function() {
-    const phoneNumber = 254113607660; // Replace with your phone number
+    const phoneNumber = 254742451048; // Replace with your phone number
     window.location.href = `tel:${phoneNumber}`;
 });
 /*
