@@ -70,13 +70,86 @@ section {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-#devBt {
+/*#devBt {
     align-content: center;
     text-align: center;
     background-color: #ff8c00;
     margin-right: 50%;
     margin-left: 50%;
     width: fit-content;
+} */
+        #devBt {
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            padding: 10px 20px;
+            background-color: #ff8c00;
+            color: #fff;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #DevForm {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        #DevForm .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: red;
+            font-size: 16px;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 500;
+        }
+     #DevForm label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#DevForm select,input,
+#DevForm textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+#DevForm button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #ff8c00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#DevForm button[type="submit"]:hover {
+  background-color: #ff6f00;
 }
 /*
 footer {
@@ -158,9 +231,19 @@ footer {
     justify-content: space-around;
 }
         #whatsapp {
+            padding: 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
             background-color: #25D366;
         }
         #call {
+            padding: 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
             background-color: #34B7F1;
         }
 #contact h2 {
@@ -175,6 +258,12 @@ footer {
   max-width: 400px;
   margin: 0 auto;
 }
+ form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+       }
 
 #contactForm label {
   display: flex;
