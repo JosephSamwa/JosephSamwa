@@ -55,8 +55,8 @@
             <p>Check out some of our recent projects:</p>
             <div class="portfolio-item">
                 <p>PROJECT 1</p>
-                <img src="2nd project.png" alt="Project 1">
-                <a href="https://naadirhousesolutions.onrender.com" id="view">View Project</a>
+                <img src="project1.png" alt="Project 1">
+                <a href="https://www.project3.com" id="view">View Project</a>
             </div>
             <hr />
             <div class="portfolio-item">
@@ -85,7 +85,7 @@
             <button id="call"><i class="fas fa-phone"></i> CALL</button>
             </div>
                       
-            <form name="contact" method="POST" data-netlify="true" id="contactForm" >
+            <form id="contactForm">
                 <div id="alert"></div>
                   <h2>Send a message</h2>
                 <label for="name"><i class="fas fa-user"></i> Name:</label>
@@ -99,18 +99,26 @@
                 <button type="submit">Send</button>
             </form>
         </section>
-                <section id="developerReg" style="display:none;">
-           <form name="contact" method="POST" data-netlify="true" id="devRegs" >
-                  <h2>Send a message</h2>
-                <label for="name"><i class="fas fa-user"></i> Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message"><i class="fas fa-comment"></i> Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </section>
+        <div id="overlay"></div>
+    <div id="DevForm">
+        <span class="close-btn" id="closeDevForm">X</span>
+        <form name="DevForm" method="POST" data-netlify="true">
+            <label for="Name">Full Name:</label>
+            <input type="text" id="DevName" name="DevName" required>
+            <label for="DevEmail">Email:</label>
+            <input type="email" id="DevEmail" name="DevEmail" required>
+            <label for="DevPhone">Phone:</label>
+            <input type="tel" id="DevPhone" name="DevPhone" required>
+            <label for="title">Title:</label>
+            <select name="skills" id="skills" required>
+                <option value="">choose what suits you best</option>
+               <option value="front End developer">front End developer</option>
+               <option value="backend developer">backend developer</option>
+               <option value="full stack developer">full stack developer</option>
+            </select>
+            <button type="submit">Register</button>
+        </form>
+    </div>
        <!-- <section id="newsletter">
             <h2>Subscribe to our Newsletter</h2>
             <form id="newsletterForm">
@@ -132,6 +140,27 @@
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
+        <script>
+        const adminBtn = document.getElementById('devBt');
+        const DevForm = document.getElementById('DevForm');
+        const closeDevForm = document.getElementById('closeDevForm');
+        const overlay = document.getElementById('overlay');
+
+        adminBtn.addEventListener('click', () => {
+            DevForm.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        closeDevForm.addEventListener('click', () => {
+            DevForm.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        overlay.addEventListener('click', () => {
+            DevForm.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+    </script>
     <script src="SamTech.js"></script>
 </body>
 </html>
