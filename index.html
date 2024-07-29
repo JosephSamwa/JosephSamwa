@@ -40,15 +40,9 @@
         </section>
         <section class="testimonials">
             <h2>Testimonials</h2>
-            <div class="testimonial">
-                <p>"SamTech transformed our online presence!" - Happy Client</p>
-            </div>
-            <div class="testimonial">
-                <p>"Professional and efficient service." - Satisfied Customer</p>
-            </div>
-            <div class="testimonial">
-                <p>"Highly recommend SamTech for web solutions." - Another Client</p>
-            </div>
+           <div id="testimonial-container">
+        <div id="tst"></div>
+    </div>
         </section>
         <section id="portfolio">
             <h2>Our Portfolio</h2>
@@ -140,6 +134,37 @@
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
+     <script type="text/javascript" charset="utf-8">
+        const contentElement = document.getElementById('tst');
+        const testimonials = [
+            {
+                name: "John D., Small Business Owner",
+                text: "SamTech transformed my online presence with a sleek, user-friendly website. Excellent service!"
+            },
+            {
+                name: "Sarah M., E-commerce Store Manager",
+                text: "SamTech improved my site's design and functionality, boosting sales significantly. Highly recommended!"
+            },
+            {
+                name: "Michael T., Freelance Graphic Designer",
+                text: "SamTech brought my vision to life with a stunning website. Their attention to detail is exceptional."
+            },
+            {
+                name: "Emily R., Non-Profit Director",
+                text: "SamTech created a beautiful, informative website that has enhanced our outreach. Fantastic team!"
+            },
+            {
+                name: "David L., Tech Startup Founder",
+                text: "SamTech delivered a cutting-edge website that impresses clients and investors. Outstanding work!"
+            }
+        ];
+        let index = 0;
+
+        setInterval(() => {
+            contentElement.innerHTML = `<p class="name">${testimonials[index].name}</p><p>${testimonials[index].text}</p>`;
+            index = (index + 1) % testimonials.length;
+        }, 3000);
+    </script>
         <script>
         const adminBtn = document.getElementById('devBt');
         const DevForm = document.getElementById('DevForm');
