@@ -70,6 +70,12 @@ section {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+            #tst {
+                width: 100%;
+                height: auto;
+                background-color: grey;
+                padding: 10px;
+            }
 /*#devBt {
     align-content: center;
     text-align: center;
@@ -293,7 +299,7 @@ footer {
   background-color: #ff6f00;
 }
 /* Testimonials Styles */
-.testimonial {
+/* .testimonial {
     display: none;
     opacity: 0;
     position: absolute;
@@ -319,6 +325,7 @@ footer {
     opacity: 1;
     animation: fade-in 6s ease-in-out;
 }
+*/
 #alert {
     background-color: green;
     width: fit-content;
@@ -334,7 +341,7 @@ footer {
     
 
 /* Keyframes for fading in and out */
-@keyframes fade-in {
+/* @keyframes fade-in {
     from {
         opacity: 0;
     }
@@ -351,7 +358,7 @@ footer {
         opacity: 0;
     }
 }
-
+*/
 /* Testimonials Styles */
 /*
 .testimonial {
