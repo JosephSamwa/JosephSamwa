@@ -347,13 +347,15 @@ footer {
     width: fit-content;
     padding: 10px;
     display: none;
-    
+    border-radius:10px;
 }
 #DevAlert {
     background-color: gold;
     width: fit-content;
     padding: 10px;
     display: none;
+    border-radius:10px;
+}
     
 
 /* Keyframes for fading in and out */
