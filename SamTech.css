@@ -109,6 +109,16 @@ section {
             margin-left: 25%;
             margin-right: 25%;
         }
+#resources {
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            padding: 10px 20px;
+            background-color: #ff8c00;
+            color: #fff;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
 
         button:hover {
             background-color: #45a049;
