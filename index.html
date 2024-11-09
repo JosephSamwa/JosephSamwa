@@ -68,7 +68,14 @@
             justify-content: space-between;
             padding: 0 1rem;
         }
-
+        .flx{
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        .flx button{
+            margin: 4px;
+        }
         .logo-container {
             display: flex;
             align-items: center;
@@ -157,7 +164,7 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-
+    
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--primary-color);
@@ -407,12 +414,14 @@
                         minlength="2"
                     >
                 </div>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-user-plus"></i> Register as Marketer
-                </button> 
-                <button class="btn btn-primary">
-                <i class="fas fa-file-alt"></i><a href="terms.html">Terms and conditions</a>
-            </button>
+               <div class="flx">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> Register as Marketer
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-file-alt"></i><a href="terms.html">Terms and conditions</a>
+                    </button>
+                </div>
             </form>
             
         </div>
