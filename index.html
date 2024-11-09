@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SamTech Solutions - Professional Technology Services">
     <title>SamTech Solutions | Professional Tech Services</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
@@ -351,150 +353,143 @@
             </div>
         </div>
     </header>
+    <section class="hero">
+        <h1>Welcome to SamTech Solutions</h1>
+        <p>Transforming ideas into innovative solutions. Join our team of marketers and be part of something extraordinary.</p>
+    </section>
 
-    <main>
-        <section class="hero">
-            <h1>Welcome to SamTech Solutions</h1>
-            <p>Transforming ideas into innovative solutions. Join our team of marketers and be part of something extraordinary.</p>
-        </section>
+    <section id="registration">
+        <div id="alert" class="alert"></div>
+        <h2>Marketer Registration</h2>
+        <div class="form-container">
+            <form id="RegForm" name="RegForm">
+                <div class="form-group">
+                    <label for="DevName">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="DevName" 
+                        name="DevName" 
+                        required 
+                        placeholder="Your full name"
+                        minlength="2"
+                    >
+                </div>
 
-        <section id="registration">
-            <h2>Marketer Registration</h2>
-            <div class="form-container">
-                <form id="RegForm" name="RegForm"  netlify>
-                    <div class="form-group">
-                        <label for="DevName">Full Name</label>
-                        <input 
-                            type="text" 
-                            id="DevName" 
-                            name="DevName" 
-                            required 
-                            placeholder="Your full name"
-                            minlength="2"
-                        >
-                    </div>
+                <div class="form-group">
+                    <label for="DevEmail">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="DevEmail" 
+                        name="DevEmail" 
+                        required 
+                        placeholder="Your email address"
+                    >
+                </div>
 
-                    <div class="form-group">
-                        <label for="DevEmail">Email Address</label>
-                        <input 
-                            type="email" 
-                            id="DevEmail" 
-                            name="DevEmail" 
-                            required 
-                            placeholder="Your email address"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="DevPhone">Phone Number</label>
-                        <input 
-                            type="tel" 
-                            id="DevPhone" 
-                            name="DevPhone" 
-                            required 
-                            placeholder="Your phone number"
-                        >
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input 
-                            type="text" 
-                            id="location" 
-                            name="location" 
-                            required 
-                            placeholder="County"
-                            minlength="2"
-                        >
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-user-plus"></i> Register as Marketer
-                    </button>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-file-alt"></i><a href="terms.html">Terms and conditions</a>
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Get in Touch</h2>
-            <div class="contact-buttons">
-                <button class="btn btn-whatsapp" id="whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                <div class="form-group">
+                    <label for="DevPhone">Phone Number</label>
+                    <input 
+                        type="tel" 
+                        id="DevPhone" 
+                        name="DevPhone" 
+                        required 
+                        placeholder="Your phone number"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input 
+                        type="text" 
+                        id="location" 
+                        name="location" 
+                        required 
+                        placeholder="County"
+                        minlength="2"
+                    >
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Register as Marketer
                 </button>
-                <button class="btn btn-call" id="call">
-                    <i class="fas fa-phone"></i> Call Us
+            </form>
+            <button class="btn btn-primary">
+                <i class="fas fa-file-alt"></i><a href="terms.html">Terms and conditions</a>
+            </button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-buttons">
+            <button class="btn btn-whatsapp" id="whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </button>
+            <button class="btn btn-call" id="call">
+                <i class="fas fa-phone"></i> Call Us
+            </button>
+        </div>
+
+        <div class="form-container">
+            <div class="alert" id="alert"></div>
+            <form id="contactForm" name="ContactForm">
+                <div class="form-group">
+                    <label for="name">
+                        <i class="fas fa-user"></i> Full Name
+                    </label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        placeholder="Enter your name"
+                        minlength="2"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Email Address
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        placeholder="Enter your email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">
+                        <i class="fas fa-phone"></i> Phone Number
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        required 
+                        placeholder="Enter your phone number"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="message">
+                        <i class="fas fa-comment"></i> Message
+                    </label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        required 
+                        placeholder="Type your message here"
+                        minlength="10"
+                    ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <span class="loading" id="submitLoading"></span>
+                    <i class="fas fa-paper-plane"></i> Send Message
                 </button>
-            </div>
-
-            <div class="form-container">
-                <div class="alert" id="alert"></div>
-                <form id="contactForm" name="ContactForm" netlify>
-                    <div class="form-group">
-                        <label for="name">
-                            <i class="fas fa-user"></i> Full Name
-                        </label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            required 
-                            placeholder="Enter your name"
-                            minlength="2"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">
-                            <i class="fas fa-envelope"></i> Email Address
-                        </label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            required 
-                            placeholder="Enter your email"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">
-                            <i class="fas fa-phone"></i> Phone Number
-                        </label>
-                        <input 
-                            type="tel" 
-                            id="phone" 
-                            name="phone" 
-                            required 
-                            placeholder="Enter your phone number"
-                            pattern="[0-9+\s-]{10,}"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">
-                            <i class="fas fa-comment"></i> Message
-                        </label>
-                        <textarea 
-                            id="message" 
-                            name="message" 
-                            required 
-                            placeholder="Type your message here"
-                            minlength="10"
-                        ></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">
-                        <span class="loading" id="submitLoading"></span>
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
+            </form>
+        </div>
+    </section>
 
     <footer>
         <div class="footer-content">
@@ -533,15 +528,66 @@
     </footer>
 
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAujFKDx_T7ZSEyYGmvbdhkmn8SdKCNXjs",
+            authDomain: "hope-kokeno-cbo.firebaseapp.com",
+            databaseURL: "https://hope-kokeno-cbo-default-rtdb.firebaseio.com",
+            projectId: "hope-kokeno-cbo",
+            storageBucket: "hope-kokeno-cbo.appspot.com",
+            messagingSenderId: "508964589142",
+            appId: "1:508964589142:web:33a4d190a497bb5ecab5f7"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Function to save contact form data
+        function saveContactFormData(name, email, phone, message) {
+            const newContactFormRef = database.ref('SamTech-messages').push();
+            const date = new Date();
+            const day = date.getDate();
+            const monthNames = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const month = monthNames[date.getMonth()];
+            const year = date.getFullYear();
+            let hours = date.getHours();
+            const minutes = date.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+
+            const formattedTime = `${day} ${month} ${year} || ${hours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
+            newContactFormRef.set({
+                name,
+                email,
+                phone,
+                message,
+                date: formattedTime
+            });
+        }
+
+        // Function to save registration form data
+        function saveRegistrationData(name, email, phone, location) {
+            const newRegistrationRef = database.ref('SamTech-registrations').push();
+            const date = new Date();
+            const formattedTime = date.toLocaleString('en-US', { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric', 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                hour12: true 
+            });
+            newRegistrationRef.set({
+                name,
+                email,
+                phone,
+                location,
+                date: formattedTime
+            });
+        }
 
         // Contact form handling
         const contactForm = document.getElementById('contactForm');
@@ -553,8 +599,12 @@
             submitLoading.style.display = 'inline-block';
 
             try {
-                // Simulate form submission (replace with actual API call)
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const message = document.getElementById('message').value;
+                
+                await saveContactFormData(name, email, phone, message);
                 
                 showAlert('Message sent successfully!', 'success');
                 contactForm.reset();
@@ -572,17 +622,18 @@
             e.preventDefault();
             
             try {
-                // Handle Netlify form submission
-                const formData = new FormData(regForm);
-                await fetch('/', {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
-                });
+                console.log('we are here!');
+                const name = document.getElementById('DevName').value;
+                const email = document.getElementById('DevEmail').value;
+                const phone = document.getElementById('DevPhone').value;
+                const location = document.getElementById('location').value;
                 
+                await saveRegistrationData(name, email, phone, location);
+                console.log('alert!');
                 showAlert('Registration successful!', 'success');
                 regForm.reset();
             } catch (error) {
+                console.log('error!');
                 showAlert('Error during registration. Please try again.', 'error');
             }
         });
@@ -600,11 +651,11 @@
 
         // WhatsApp and Call button handlers
         document.getElementById('whatsapp').addEventListener('click', () => {
-            window.open('https://wa.me/1234567890', '_blank');
+            window.open('https://wa.me/254113607660', '_blank');
         });
 
         document.getElementById('call').addEventListener('click', () => {
-            window.location.href = 'tel:+11234567890';
+            window.location.href = 'tel:+254113607660';
         });
 
         // Form validation enhancement
@@ -623,6 +674,16 @@
                     }
                 });
             });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
 </body>
