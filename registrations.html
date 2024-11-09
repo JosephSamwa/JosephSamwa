@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamTech Solutions - View Messages</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2563eb;
+            text-align: center;
+        }
+        #messageList {
+            list-style-type: none;
+            padding: 0;
+        }
+        .message {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .message h3 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+        .message p {
+            margin: 5px 0;
+        }
+        .message .date {
+            font-size: 0.8em;
+            color: #666;
+            text-align: right;
+        }
+        #loadingMessage {
+            text-align: center;
+            color: #666;
+        }
+        .contact-buttons {
+            margin-top: 10px;
+        }
+        .contact-button {
+            display: inline-block;
+            padding: 5px 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .whatsapp {
+            background-color: #25D366;
+        }
+        .call {
+            background-color: #007bff;
+        }
+        .email {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>SamTech Solutions - Messages</h1>
+    <div id="loadingMessage">Loading messages...</div>
+    <ul id="messageList"></ul>
+    <ul id="RegistrationList"></ul>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAujFKDx_T7ZSEyYGmvbdhkmn8SdKCNXjs",
+            authDomain: "hope-kokeno-cbo.firebaseapp.com",
+            databaseURL: "https://hope-kokeno-cbo-default-rtdb.firebaseio.com",
+            projectId: "hope-kokeno-cbo",
+            storageBucket: "hope-kokeno-cbo.appspot.com",
+            messagingSenderId: "508964589142",
+            appId: "1:508964589142:web:33a4d190a497bb5ecab5f7"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Function to retrieve and display messages
+        function getMessages() {
+            const messagesRef = database.ref('SamTech-messages');
+            messagesRef.on('value', (snapshot) => {
+                const data = snapshot.val();
+                const messageList = document.getElementById('messageList');
+                const loadingMessage = document.getElementById('loadingMessage');
+
+                // Clear previous messages
+                messageList.innerHTML = '';
+
+                // Hide loading message
+                loadingMessage.style.display = 'none';
+
+                // Check if there are messages
+                if (data) {
+                    // Convert object to array and reverse to show newest first
+                    const messages = Object.entries(data).reverse();
+
+                    messages.forEach(([key, value]) => {
+                        const li = document.createElement('li');
+                        li.className = 'message';
+                        li.innerHTML = `
+                            <h3>${value.name}</h3>
+                            <p><strong>Email:</strong> ${value.email}</p>
+                            <p><strong>Phone:</strong> ${value.phone}</p>
+                            <p><strong>Message:</strong> ${value.message}</p>
+                            <p class="date">${value.date}</p>
+                            <div class="contact-buttons">
+                                <a href="https://wa.me/${value.phone}" target="_blank" class="contact-button whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="tel:${value.phone}" class="contact-button call">
+                                    <i class="fas fa-phone"></i> Call
+                                </a>
+                                <a href="mailto:${value.email}" class="contact-button email">
+                                    <i class="fas fa-envelope"></i> Email
+                                </a>
+                            </div>
+                        `;
+                        messageList.appendChild(li);
+                    });
+                } else {
+                    messageList.innerHTML = '<li>No messages found.</li>';
+                }
+            }, (error) => {
+                console.error("Error fetching messages: ", error);
+                document.getElementById('loadingMessage').textContent = 'Error loading messages. Please try again later.';
+            });
+        }
+
+        // Call the function to retrieve messages when the page loads
+        window.onload = getMessages;
+
+        // Function to retrieve and display messages
+        function getRegistrations() {
+            const messagesRef = database.ref('SamTech-registrations');
+            messagesRef.on('value', (snapshot) => {
+                const data = snapshot.val();
+                const RegistrationList = document.getElementById('RegistrationList');
+                const loadingMessage = document.getElementById('loadingMessage');
+
+                // Clear previous messages
+                RegistrationList.innerHTML = '';
+
+
+                // Check if there are messages
+                if (data) {
+                    // Convert object to array and reverse to show newest first
+                    const messages = Object.entries(data).reverse();
+
+                    messages.forEach(([key, value]) => {
+                        const li = document.createElement('li');
+                        li.className = 'message';
+                        li.innerHTML = `
+                            <h3>${value.name}</h3>
+                            <p><strong>Email:</strong> ${value.email}</p>
+                            <p><strong>Phone:</strong> ${value.phone}</p>
+                            <p><strong>Message:</strong> ${value.location}</p>
+                            <p class="date">${value.date}</p>
+                            <div class="contact-buttons">
+                                <a href="https://wa.me/${value.phone}" target="_blank" class="contact-button whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="tel:${value.phone}" class="contact-button call">
+                                    <i class="fas fa-phone"></i> Call
+                                </a>
+                                <a href="mailto:${value.email}" class="contact-button email">
+                                    <i class="fas fa-envelope"></i> Email
+                                </a>
+                            </div>
+                        `;
+                        RegistrationList.appendChild(li);
+                    });
+                } else {
+                    RegistrationList.innerHTML = '<li>No Registrations found.</li>';
+                }
+            }, (error) => {
+                console.error("Error fetching messages: ", error);
+                document.getElementById('loadingMessage').textContent = 'Error loading registrations. Please try again later.';
+            });
+        }
+
+        // Call the function to retrieve messages when the page loads
+        window.onload = getRegistrations;
+
+    </script>
+</body>
+</html>
