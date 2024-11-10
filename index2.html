@@ -3,236 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-adsense-account" content="ca-pub-8429760161035156">
     <title>SamTech Website Solutions</title>
-    <link rel="stylesheet" href="SamTech.css">
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --text: #1f2937;
+            --light: #f3f4f6;
+            --dark: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .H h2 {
+            color: white;
+            font-size: 2rem;
+            margin-left: 1rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .testimonials h2 {
+            color: white;
+        }
+
+        #testimonial-container {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .name {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.02);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        #view {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        #view:hover {
+            background: var(--secondary);
+        }
+
+        .developer {
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+        }
+
+        button {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .callUs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        #contactForm {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .social-media {
+            margin-top: 1rem;
+        }
+
+        .social-media a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: var(--accent);
+        }
+
+        #DevForm {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            display: none;
+            z-index: 1000;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .H h2 {
+                margin-top: 1rem;
+                margin-left: 0;
+            }
+
+            .callUs {
+                flex-direction: column;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-       <div> <img src="SamTech.jpg" alt="SamTech Logo" class="logo"> </div>
-       <div class="H"> <h2 style="text-align:center;">SamTech Website Solutions</h2> </div>
-      <!--  <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav> -->
+        <div class="header-content">
+            <div><img src="SamTech.jpg" alt="SamTech Logo" class="logo"></div>
+            <div class="H"><h2>SamTech Website Solutions</h2></div>
+        </div>
     </header>
+
     <main>
         <section id="home">
-            <h2>Welcome to SamTech Website Solutions</h2>
+            <h2><i class="fas fa-globe"></i> Welcome to SamTech Website Solutions</h2>
             <p>Your one-stop solution for all your web development needs.</p>
         </section>
+
         <section id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Web Development</li>
-                <li>Portfolio Designs</li>
-                <li>SEO Optimization</li>
-                <li>Website Management</li>
-                <li>Custom Solutions</li>
-                <li>We offer web development courses</li>
-            </ul>
+            <h2><i class="fas fa-cogs"></i> Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Custom websites tailored to your needs</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Portfolio Designs</h3>
+                    <p>Showcase your work professionally</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO Optimization</h3>
+                    <p>Improve your online visibility</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Website Management</h3>
+                    <p>Keep your site running smoothly</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored to your specific needs</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Web Development Courses</h3>
+                    <p>Learn from industry experts</p>
+                </div>
+            </div>
         </section>
+
         <section class="testimonials">
-            <h2>Testimonials</h2>
-           <div id="testimonial-container">
-        <div id="tst"></div>
-    </div>
+            <h2><i class="fas fa-quote-left"></i> Testimonials</h2>
+            <div id="testimonial-container">
+                <div id="tst"></div>
+            </div>
         </section>
+
         <section id="portfolio">
-            <h2>Our Portfolio</h2>
- <div class="portfolio-item">
-<a href="https://joseph-samwa.netlify.app" id="view">CLICK TO VIEW PERSONAL PORTFOLIO</a>
+            <h2><i class="fas fa-briefcase"></i> Our Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="2nd project.png" alt="Project 1">
+                    <a href="https://naadirhousesolutions.onrender.com" id="view">
+                        <i class="fas fa-external-link-alt"></i> View Project
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="project2.png" alt="Project 2">
+                    <a href="https://hope-kokeno-cbo.netlify.app/" id="view">
+                        <i class="fas fa-external-link-alt"></i> View Project
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="project3.jpg" alt="Project 3">
+                    <a href="https://sam-tech-websites.netlify.app/" id="view">
+                        <i class="fas fa-external-link-alt"></i> View Project
+                    </a>
+                </div>
             </div>
-            <hr />
-            <p>Check out some of our recent projects:</p>
-            <div class="portfolio-item">
-                <p>PROJECT 1</p>
-               <a href="https://naadirhousesolutions.onrender.com" id="view"> <img src="2nd project.png" alt="Project 1"> </a>
-<a href="https://naadirhousesolutions.onrender.com" id="view">View Project</a>
-            </div>
-            <hr />
-            <div class="portfolio-item">
-                  <p>PROJECT 2</p>
-               <a href="https://hope-kokeno-cbo.netlify.app/" id="view"> <img src="project2.png" alt="Project 2"> </a>
-<a href="https://hope-kokeno-cbo.netlify.app/" id="view">View Project</a>
-            </div>
-            <hr />
-            <div class="portfolio-item">
-                  <p>PROJECT 3</p>
-                <a href="https://sam-tech-websites.netlify.app/" id="view"><img src="project3.jpg" alt="Project 3"></a>
-<a href="https://sam-tech-websites.netlify.app/" id="view">View Project</a>
-            </div>
-            <hr />
         </section>
+
         <section class="developer">
-             <div id="DevAlert"></div>
-            <h3>Are you a freelancer developer?</h3>
+            <h3><i class="fas fa-laptop-code"></i> Are you a freelance developer?</h3>
             <p>Register today to join your fellow developers at SamTech</p>
-            <button id="devBt">Register Now</button>
+            <button id="devBt"><i class="fas fa-user-plus"></i> Register Now</button>
         </section>
-<section class="developer">
-  <h3>Are you interested in learning programming online</h3>
+
+        <section class="developer">
+            <h3><i class="fas fa-book"></i> Interested in learning programming online?</h3>
             <p>Click the button below to access all learning resources free of charge!</p>
-            <button id="resources">Resources</button>
+            <button id="resources"><i class="fas fa-download"></i> Access Resources</button>
         </section>
+
         <section id="contact">
-            <h2>Contact Us</h2>
+            <h2><i class="fas fa-envelope"></i> Contact Us</h2>
             <div class="callUs">
-              <button id="whatsapp"><i class="fab fa-whatsapp"></i> WHATSAPP</button>
-            <button id="call"><i class="fas fa-phone"></i> CALL</button>
+                <button id="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                <button id="call"><i class="fas fa-phone"></i> Call</button>
             </div>
-                      
             <form id="contactForm">
                 <div id="alert"></div>
-                  <h2>Send a message</h2>
-                <label for="name"><i class="fas fa-user"></i> Name:</label>
-                <input type="text" id="name" name="name" required placeholder="Enter your name...">
-                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
-                <input type="email" id="email" name="email" required placeholder="Enter you email address...">
-                <label for="phone"><i class="fas fa-phone"></i>Phone Number:</label>
-                <input type="tel" name="phone" id="phone" required placeholder="Enter your phone number...">
-                <label for="message"><i class="fas fa-comment"></i> Message:</label>
+                <h2>Send a message</h2>
+                <input type="text" id="name" name="name" required placeholder="Enter your name..." >
+                <input type="email" id="email" name="email" required placeholder="Enter your email address..." >
+                <input type="tel" name="phone" id="phone" required placeholder="Enter your phone number..." >
                 <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
-                <button type="submit">Send</button>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
             </form>
         </section>
-        <div id="overlay"></div>
-    <div id="DevForm">
-        <span class="close-btn" id="closeDevForm">X</span>
-        <form name="DevForm" method="POST" data-netlify="true">
-            <label for="Name">Full Name:</label>
-            <input type="text" id="DevName" name="DevName" required placeholder="Your full name...">
-            <label for="DevEmail">Email:</label>
-            <input type="email" id="DevEmail" name="DevEmail" required placeholder="Enter your email address...">
-            <label for="DevPhone">Phone:</label>
-            <input type="tel" id="DevPhone" name="DevPhone" required placeholder="Enter your phone number...">
-            <label for="title">Title:</label>
-            <select name="skills" id="skills" required>
-                <option value="">choose what suits you best</option>
-               <option value="front End developer">front End developer</option>
-               <option value="backend developer">backend developer</option>
-               <option value="full stack developer">full stack developer</option>
-            </select>
-<label for="CV">Your personal CV:</label>
-            <input type="file" id="DevCV" name="DevCV" required placeholder="Upload your detailed Cv...">
-            <button type="submit">Register</button>
-        </form>
-    </div>
-       <!-- <section id="newsletter">
-            <h2>Subscribe to our Newsletter</h2>
-            <form id="newsletterForm">
-                <label for="newsletterEmail"><i class="fas fa-envelope"></i> Email:</label>
-                <input type="email" id="newsletterEmail" name="newsletterEmail" required>
-                <button type="submit">Subscribe</button> -->
-            </form>
-        </section>
-        <!--<section id="map">
-            <h2>Our Location</h2>
-            <div id="mapContainer"></div>
-        </section> -->
     </main>
+
     <footer>
-        <p>© 2024 SamTech Website Solutions. All rights reserved. </p> <a href="mailto:samtech.websites@gmail.com">samtech.websites@gmail.com</a>
+        <p>© 2024 SamTech Website Solutions. All rights reserved.</p>
+        <a href="mailto:samtech.websites@gmail.com">samtech.websites@gmail.com</a>
         <div class="social-media">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
-     <script type="text/javascript" charset="utf-8">
-        const contentElement = document.getElementById('tst');
-        const testimonials = [
-            {
-                name: "John D., Small Business Owner",
-                text: "SamTech transformed my online presence with a sleek, user-friendly website. Excellent service!"
-            },
-            {
-                name: "Sarah M., E-commerce Store Manager",
-                text: "SamTech improved my site's design and functionality, boosting sales significantly. Highly recommended!"
-            },
-            {
-                name: "Michael T., Freelance Graphic Designer",
-                text: "SamTech brought my vision to life with a stunning website. Their attention to detail is exceptional."
-            },
-            {
-                name: "Emily R., Non-Profit Director",
-                text: "SamTech created a beautiful, informative website that has enhanced our outreach. Fantastic team!"
-            },
-            {
-                name: "David L., Tech Startup Founder",
-                text: "SamTech delivered a cutting-edge website that impresses clients and investors. Outstanding work!"
-            }
-        ];
-        let index = 0;
 
-        setInterval(() => {
-            contentElement.innerHTML = `<p class="name">${testimonials[index].name}</p><p>${testimonials[index].text}</p>`;
-            index = (index + 1) % testimonials.length;
-        }, 3000);
-    </script>
-        <script>
-        const adminBtn = document.getElementById('devBt');
-        const DevForm = document.getElementById('DevForm');
-        const closeDevForm = document.getElementById('closeDevForm');
-        const overlay = document.getElementById('overlay');
-
-        adminBtn.addEventListener('click', () => {
-            DevForm.style.display = 'block';
-            overlay.style.display = 'block';
-        });
-
-        closeDevForm.addEventListener('click', () => {
-            DevForm.style.display = 'none';
-            overlay.style.display = 'none';
-        });
-
-        overlay.addEventListener('click', () => {
-            DevForm.style.display = 'none';
-            overlay.style.display = 'none';
-        });
-    </script>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCYRmPpm4xdUiae5NJFzWhHXEMBDjii8vQ",
-    authDomain: "samtech-f5943.firebaseapp.com",
-    projectId: "samtech-f5943",
-    storageBucket: "samtech-f5943.appspot.com",
-    messagingSenderId: "647531302631",
-    appId: "1:647531302631:web:e833ae61d0bcd8d7f41c42",
-    measurementId: "G-NCNQRVNWNS"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-    <script src="SamTech.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '2972d9d154f95a358341871dec96186b',
-		'format' : 'iframe',
-		'height' : 300,
-		'width' : 100%,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.topcreativeformat.com/2972d9d154f95a358341871dec96186b/invoke.js"></script>
+    <div id="overlay"></div>
+    <div id="DevForm">
+        <span class="close-btn" id="closeDevForm">×</span>
+        <form name="DevForm" method="POST" data-netlify="true">
+            <h3><i class="fas fa-user-plus"></i> Developer Registration</h3>
+            <input type="text" id="DevName" name="DevName" required placeholder="Your full name...">
+            <input type="email" id="DevEmail" name="DevEmail" required placeholder="Enter your email address...">
+            <input type="tel" id="DevPhone" name="DevPhone" required placeholder="Enter your phone number...">
+            <select name="skills" id="skills" required>
+                <option value="">Choose what suits you best</option>
+                <option value="front End developer">Front End Developer</option>
+                <option value="backend developer">Backend Developer</option>
+                <option value="full stack developer">Full Stack Developer</option>
+            </select>
+            <input type="file" id="DevCV" name="DevCV" required>
+            <button type="submit"><i class="fas fa-check"></i> Register</button>
+        </form>
+    </div>
 </body>
 </html>
