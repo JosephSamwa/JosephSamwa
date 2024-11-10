@@ -10,9 +10,9 @@ const firebaseConfig = {
     appId: "1:508964589142:web:33a4d190a497bb5ecab5f7"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+ // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
 
 // Function to save contact form data
 function saveContactFormData(name, email, phone, message) {
