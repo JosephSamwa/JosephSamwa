@@ -1,13 +1,3 @@
-// First, add the Firebase SDK scripts in your HTML file before your script
-// Add these lines in your HTML:
-/*
-<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-database-compat.js"></script>
-*/
-
-// Initialize Firebase with modular syntax
-import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, push, set } from 'firebase/database';
 
 // Firebase configuration
 const firebaseConfig = {
