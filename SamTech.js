@@ -1,5 +1,16 @@
+// First, add the Firebase SDK scripts in your HTML file before your script
+// Add these lines in your HTML:
+/*
+<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-database-compat.js"></script>
+*/
+
+// Initialize Firebase with modular syntax
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, push, set } from 'firebase/database';
+
 // Firebase configuration
-   const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyAujFKDx_T7ZSEyYGmvbdhkmn8SdKCNXjs",
     authDomain: "hope-kokeno-cbo.firebaseapp.com",
     databaseURL: "https://hope-kokeno-cbo-default-rtdb.firebaseio.com",
@@ -8,12 +19,16 @@
     messagingSenderId: "508964589142",
     appId: "1:508964589142:web:33a4d190a497bb5ecab5f7"
 };
+
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
 // Function to save contact form data
 function saveContactFormData(name, email, phone, message) {
-    const newContactFormRef = database.ref('SamTech-messages').push();
+    const newContactFormRef = ref(database, 'SamTech-messages');
+    const newMessageRef = push(newContactFormRef);
+    
     const date = new Date();
     const day = date.getDate();
     const monthNames = [
@@ -28,7 +43,8 @@ function saveContactFormData(name, email, phone, message) {
     hours = hours % 12 || 12;
 
     const formattedTime = `${day} ${month} ${year} || ${hours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
-    newContactFormRef.set({
+    
+    set(newMessageRef, {
         name,
         email,
         phone,
@@ -37,80 +53,56 @@ function saveContactFormData(name, email, phone, message) {
     });
 }
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const message = document.getElementById('message').value;
-    saveContactFormData(name, email, phone, message);
-    setTimeout(showConfirmation, 10);
-    setTimeout(hideConfirmation, 3000);
-    document.getElementById('contactForm').reset();
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            saveContactFormData(name, email, phone, message);
+            setTimeout(showConfirmation, 10);
+            setTimeout(hideConfirmation, 3000);
+            contactForm.reset();
+        });
+    }
 });
 
 function showConfirmation() {
     const alerts = document.getElementById('alert');
     const name = document.getElementById('name').value;
-    alerts.style.display = 'block';
-    alerts.innerHTML = `Thank you for contacting us, ${name}! Serving you is our pleasure!`;
+    if (alerts) {
+        alerts.style.display = 'block';
+        alerts.innerHTML = `Thank you for contacting us, ${name}! Serving you is our pleasure!`;
+    }
 }
 
 function hideConfirmation() {
     const alerts = document.getElementById('alert');
-    alerts.style.display = 'none';
+    if (alerts) {
+        alerts.style.display = 'none';
+    }
 }
 
 function openWhatsApp() {
-    const phoneNumber = 254113607660; // Replace with your WhatsApp number
+    const phoneNumber = 254113607660;
     const url = `https://wa.me/${phoneNumber}`;
     window.open(url, '_blank');
 }
 
-document.getElementById('whatsapp').addEventListener('click', openWhatsApp);
-document.getElementById('call').addEventListener('click', openWhatsApp);
-/*
-// Initialize and add the map
-function initMap() {
-    var location = {lat: -1.2921, lng: 36.8219}; // Example coordinates (Nairobi, Kenya)
-    var map = new google.maps.Map(document.getElementById('mapContainer'), {
-        zoom: 10,
-        center: location
-    });
-    var marker = new google.maps.Marker({
-        position: location,
-        map: map
-    });
-}
-
-// Load the map script
-var script = document.createElement('script');
-script.src = 'https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap';
-script.async = true;
-document.head.appendChild(script);
-*/
-// Testimonials animation
-/*
-let testimonials = document.querySelectorAll('.testimonial');
-let currentTestimonial = 0;
-
-function showNextTestimonial() {
-    testimonials[currentTestimonial].classList.remove('active');
-    testimonials[currentTestimonial].classList.add('slide-out');
+// Add event listeners only if elements exist
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappButton = document.getElementById('whatsapp');
+    const callButton = document.getElementById('call');
     
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    
-    testimonials[currentTestimonial].classList.add('slide-in');
-    testimonials[currentTestimonial].classList.add('active');
-    
-    setTimeout(() => {
-        testimonials[currentTestimonial].classList.remove('slide-in');
-        testimonials[currentTestimonial].classList.remove('slide-out');
-    }, 6000);
-}
-
-setInterval(showNextTestimonial, 6000);
-
-// Initialize the first testimonial
-testimonials[currentTestimonial].classList.add('active');
-*/
+    if (whatsappButton) {
+        whatsappButton.addEventListener('click', openWhatsApp);
+    }
+    if (callButton) {
+        callButton.addEventListener('click', openWhatsApp);
+    }
+});
