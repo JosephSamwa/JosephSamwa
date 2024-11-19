@@ -1,11 +1,10 @@
-- 👋 Hi, I’m @JosephSamwa
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning full stack web development 
-- 💞️ I’m looking to collaborate on IT projects in various fields 
+- 👋 Hi, I’m JosephSamwa
+- 🌱 I’m a full stack web developer 
+- 💞️ I’m redily available to collaborate on IT projects in various fields 
 - 📫 How to reach me
 - :Email: samwajoseph8@gmail.com
-- :Phone: 254793540008/254742451048
-- 😄 Pronouns: He
+- :Phone: 254793540008/254113607660
+- 😄 Pronouns: Master
 - ⚡ Fun fact: learn to code as you code to learn
 
 <!---
