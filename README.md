@@ -1,4 +1,4 @@
-# 👋 Hi, I'm **Joseph Samwa**
+# Hi, I'm **Joseph Samwa**
 ### **Senior Software Engineer | DevSecOps & Cybersecurity Architect**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/joseph-samwa)
@@ -9,7 +9,7 @@
 
 ---
 
-## 🚀 **Featured Projects & Architectural Work**
+## **Featured Projects & Architectural Work**
 
 <table>
   <tr>
@@ -56,7 +56,7 @@
 
 ---
 
-## ⚡ **Core Competencies**
+## **Core Competencies**
 
 * **Architecture & Full-Stack:** Python 3.14 (Django, FastAPI, Flask), Java (Spring Boot), Tailwind CSS, Glassmorphism UI/UX design systems, PostgreSQL, Redis, and real-time WebSockets/API integrations (M-Pesa, UltraMsg).
 * **AI, Computer Vision & Systems:** AI-powered document extraction/OCR pipelines, desktop motion tracking (OpenCV, PyQt6), thermal hardware printing, and CLI workspace automation.
@@ -65,7 +65,7 @@
 
 ---
 
-## 🛠️ **Tech Stack**
+## **Tech Stack**
 
 ### **Languages & Frameworks**
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
