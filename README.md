@@ -5,27 +5,59 @@
 [![Email](https://img.shields.io/badge/Email-samwajoseph8@gmail.com-EA4335?style=for-the-badge&logo=gmail)](mailto:samwajoseph8@gmail.com)
 [![Website](https://img.shields.io/badge/Portfolio-EliteSamtech-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://elitesamttech.co.ke)
 
-🔹 **Founder & Lead Architect @ SamTech Elite Solutions** — Crafting resilient enterprise systems, secure full-stack platforms, and intelligent automation across East Africa and beyond.
+**Founder & Lead Architect @ SamTech Elite Solutions** — Crafting resilient enterprise systems, secure full-stack platforms, and intelligent automation across East Africa and beyond.
 
 ---
 
-## **Featured Projects & Architectural Work**
+## **Current Focus**
+
+* Architecting **FinAPI (STK Push)** and enterprise **M-Pesa payment gateways** for seamless fintech integration.
+* Scaling real-time **Fare Collection & Fleet Management Platforms** for transit operations.
+* Developing an **AI-Driven Document & Data Extraction Engine** (OCR + Pipeline Automation).
+* Building high-throughput **Developer & System Utilities** hosted at [e-ss.co.ke](https://e-ss.co.ke).
+
+---
+
+## **Featured Projects & Live Platforms**
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3>🤖 AI Document Extraction & OCR Pipeline</h3>
-      <p>Ten-phase automated data processing system built for high-throughput document extraction and parsing.</p>
-      <p><b>Key Tech:</b> Python, OpenCV, Scikit-learn, FastAPI, Redis, PostgreSQL</p>
+      <h3>FarePoint — Transit & Fleet Management</h3>
+      <p>Automated transit fare collection and real-time fleet operations system for transport operators.</p>
+      <p><b>Core Tech:</b> Django, Mobile Payments, WebSockets, PostgreSQL</p>
       <ul>
-        <li>Implemented multi-stage document preprocessing and dynamic layout analysis.</li>
-        <li>Architected asynchronous queue processing with strict security controls for enterprise client records.</li>
+        <li>Integrated automated fare tracking and driver reconciliation workflows.</li>
+        <li>Architected low-latency transaction processing for high-volume routes.</li>
       </ul>
+      <a href="https://farepoint.e-ss.co.ke/"><b>View Platform →</b></a>
     </td>
     <td width="50%" valign="top">
-      <h3>🏢 Enterprise Property & Tenant Management Platform</h3>
+      <h3>FinAPI & M-Pesa Payment Gateways</h3>
+      <p>High-availability fintech integration services for instant mobile money collection and callback verification.</p>
+      <p><b>Core Tech:</b> Python, FastAPI, Webhooks, M-Pesa API, REST API</p>
+      <ul>
+        <li>Designed robust STK push triggers with automatic retries and audit logs.</li>
+        <li>Implemented secure callback verification and enterprise merchant webhooks.</li>
+      </ul>
+      <a href="https://stkpush.co.ke"><b>FinAPI</b></a> | <a href="https://pay.elitesamttech.co.ke"><b>M-Pesa Gateway</b></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>SamTech Online Systems & Utilities</h3>
+      <p>Centralized hub of developer utilities, web tools, and enterprise automation micro-services.</p>
+      <p><b>Core Tech:</b> Django, REST APIs, Cloudflare, Linux Infrastructure</p>
+      <ul>
+        <li>Structured high-performance web utilities for daily system management.</li>
+        <li>Secured endpoints behind strict rate-limiting and threat mitigation layers.</li>
+      </ul>
+      <a href="https://e-ss.co.ke"><b>Access Tools →</b></a>
+    </td>
+    <td width="50%" valign="top">
+      <h3>Enterprise Property & Tenant Management Platform</h3>
       <p>Full-stack web platform managing tenant lifecycles, booking schedules, and real-time financial audit trails.</p>
-      <p><b>Key Tech:</b> Django, Tailwind CSS, M-Pesa API integration, PostgreSQL</p>
+      <p><b>Core Tech:</b> Django, Tailwind CSS, M-Pesa Integration, PostgreSQL</p>
       <ul>
         <li>Designed high-contrast, mobile-first UI templates for property operation metrics.</li>
         <li>Integrated automated payment webhooks and SMS alert handlers.</li>
@@ -34,21 +66,21 @@
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>👁️ Computer Vision Motion Tracker</h3>
+      <h3>Computer Vision Motion Tracker</h3>
       <p>Real-time target tracking and desktop automation workstation built for interactive Linux environments.</p>
-      <p><b>Key Tech:</b> Python 3.14, PyQt6, OpenCV, SpeechRecognition, Fedora</p>
+      <p><b>Core Tech:</b> Python 3.14, PyQt6, OpenCV, SpeechRecognition, Fedora</p>
       <ul>
         <li>Engineered real-time frame acquisition with custom dark-mode glassmorphic control overlays.</li>
         <li>Integrated localized voice command handlers for hardware controls.</li>
       </ul>
     </td>
     <td width="50%" valign="top">
-      <h3>🏥 OnSight Health Management Suite</h3>
-      <p>Patient portal and clinical operation interface optimized for rapid navigation and mobile responsiveness.</p>
-      <p><b>Key Tech:</b> Django, Responsive Tailwind CSS, WebSockets, UltraMsg</p>
+      <h3>AI Document Extraction & OCR Pipeline</h3>
+      <p>Ten-phase automated data processing system built for high-throughput document extraction and parsing.</p>
+      <p><b>Core Tech:</b> Python, OpenCV, Scikit-learn, FastAPI, Redis</p>
       <ul>
-        <li>Refactored legacy template architecture into modern, accessible frontend components.</li>
-        <li>Structured strict RBAC role policies to protect medical record handling.</li>
+        <li>Implemented multi-stage document preprocessing and dynamic layout analysis.</li>
+        <li>Architected asynchronous queue processing with strict security controls.</li>
       </ul>
     </td>
   </tr>
@@ -58,10 +90,19 @@
 
 ## **Core Competencies**
 
-* **Architecture & Full-Stack:** Python 3.14 (Django, FastAPI, Flask), Java (Spring Boot), Tailwind CSS, Glassmorphism UI/UX design systems, PostgreSQL, Redis, and real-time WebSockets/API integrations (M-Pesa, UltraMsg).
+* **Fintech & Payment Systems:** Custom M-Pesa Daraja integrations, FinAPI (STK Push), transactional webhooks, and fleet fare processing engines.
+* **Architecture & Full-Stack:** Python 3.14 (Django, FastAPI, Flask), Java (Spring Boot), Tailwind CSS, Glassmorphism UI/UX design systems, PostgreSQL, Redis, and real-time WebSockets/API integrations.
 * **AI, Computer Vision & Systems:** AI-powered document extraction/OCR pipelines, desktop motion tracking (OpenCV, PyQt6), thermal hardware printing, and CLI workspace automation.
 * **Cybersecurity & DevSecOps:** Offensive testing (OSCP methodology), SIEM threat modeling, automated CI/CD security scanning, GDPR/ISO 27001 compliance.
 * **Cloud Infrastructure:** Multi-cloud infrastructure as code (Terraform, Ansible), Kubernetes (CKA), Docker containerization, and enterprise AWS deployments.
+
+---
+
+## **Engineering & Security Philosophy**
+
+* **Zero-Trust Architecture:** Enforcing strict IAM controls, end-to-end encryption, and automated vulnerability scanning across CI/CD pipelines.
+* **Microservices & Resiliency:** Designing loosely coupled, fail-safe systems built to handle spikes and high-throughput events gracefully.
+* **Accessibility & Modern UX:** Combining high-contrast, accessible UI layouts with clean desktop and mobile interactions.
 
 ---
 
@@ -86,7 +127,7 @@
 
 ---
 
-## 📊 **GitHub Analytics**
+## **GitHub Analytics**
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=JosephSamwa&show_icons=true&theme=radical&hide_border=true&include_all_commits=true" width="48%" />
@@ -101,18 +142,19 @@
 
 ---
 
-## 🏆 **Certifications & Key Milestones**
+## **Certifications & Achievements**
+
 * **AWS Certified Solutions Architect – Professional**
 * **Certified Kubernetes Administrator (CKA)**
 * **Offensive Security Certified Professional (OSCP)**
 * **Google Cloud Professional Security Engineer**
-* **Architected & Deployed 10+ Enterprise Systems** across health tech, property platforms, and fintech integration services.
+* **Architected & Deployed 10+ Enterprise Systems** across fintech integrations, transit logistics, health tech, and property platforms.
 
 ---
 
-> *"Security isn't an afterthought—it's the foundation."* 🔐
+<div align="center">
+  <h3>Looking for a Senior DevSecOps Architect or Enterprise Full-Stack Consultant?</h3>
+  <p>Available for high-impact architecture roles, security audits, and technical advisory.</p>
 
-<details>
-  <summary>💡 <b>Fun Fact</b></summary>
-  My daily driver is Fedora Linux, and I love building real-time vision algorithms into desktop apps.
-</details>
+  [<img src="https://img.shields.io/badge/Book_a_Consultation-SamTech_Elite-blue?style=for-the-badge&logo=google-chrome&logoColor=white" />](https://elitesamttech.co.ke)
+</div>
