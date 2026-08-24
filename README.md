@@ -55,13 +55,14 @@
       <a href="https://e-ss.co.ke"><b>Access Tools →</b></a>
     </td>
     <td width="50%" valign="top">
-      <h3>Enterprise Property & Tenant Management Platform</h3>
+      <h3>Enterprise Property & Rental Management Platform</h3>
       <p>Full-stack web platform managing tenant lifecycles, booking schedules, and real-time financial audit trails.</p>
       <p><b>Core Tech:</b> Django, Tailwind CSS, M-Pesa Integration, PostgreSQL</p>
       <ul>
         <li>Designed high-contrast, mobile-first UI templates for property operation metrics.</li>
         <li>Integrated automated payment webhooks and SMS alert handlers.</li>
       </ul>
+      <a href="https://homes.elitesamttech.co.ke"><b>View Platform →</b></a>
     </td>
   </tr>
   <tr>
